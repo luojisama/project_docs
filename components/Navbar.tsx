@@ -3,18 +3,20 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { cn } from "@/lib/utils" // I need to create utils
+import { cn } from "@/lib/utils"
 import { Search } from "@/components/Search"
 import { ThemeToggle } from "@/components/ThemeToggle"
+import { useTranslations } from "next-intl"
 
 export function Navbar() {
   const pathname = usePathname()
+  const t = useTranslations("Navbar")
 
   const links = [
-    { href: "/", label: "Home" },
-    { href: "/docs/music", label: "Music" },
-    { href: "/docs/nav", label: "Nav" },
-    { href: "/docs/blog", label: "Blog" },
+    { href: "/", label: t("home") },
+    { href: "/docs/music", label: t("music") },
+    { href: "/docs/nav", label: t("nav") },
+    { href: "/docs/bot", label: "Bot" },
   ]
 
   return (

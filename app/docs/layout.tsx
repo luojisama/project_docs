@@ -1,4 +1,5 @@
 import { Sidebar } from "@/components/Sidebar"
+import { TableOfContents } from "@/components/TableOfContents"
 
 export default function DocsLayout({
   children,
@@ -12,16 +13,7 @@ export default function DocsLayout({
         <div className="mx-auto w-full min-w-0">
           {children}
         </div>
-        <div className="hidden text-sm xl:block">
-            <div className="sticky top-16 -mt-10 pt-4">
-                {/* Table of contents could go here */}
-                <p className="font-medium">On this page</p>
-                <ul className="m-0 list-none text-muted-foreground mt-2 space-y-2">
-                   <li><a href="#" className="hover:text-foreground">Introduction</a></li>
-                   <li><a href="#" className="hover:text-foreground">Features</a></li>
-                </ul>
-            </div>
-        </div>
+        <TableOfContents />
       </main>
     </div>
   )

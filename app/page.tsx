@@ -1,22 +1,25 @@
 import Link from "next/link"
-import { ArrowRight, Music, Globe, BookOpen } from "lucide-react"
+import { ArrowRight, Music, Globe, Bot } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export default function Home() {
+  const t = useTranslations("HomePage")
+
   return (
     <div className="container relative max-w-screen-2xl px-4 py-12 md:px-8 md:py-24 lg:py-32">
       <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
-          Shiro Documentation Center
+          {t("title")}
         </h1>
         <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-          Unified documentation for all projects. Beautifully designed, easy to navigate.
+          {t("description")}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/docs/music"
             className="inline-flex h-10 items-center justify-center rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
           >
-            Get Started
+            {t("getStarted")}
           </Link>
           <Link
             href="https://github.com/luojisama"
@@ -24,7 +27,7 @@ export default function Home() {
             rel="noreferrer"
             className="inline-flex h-10 items-center justify-center rounded-full border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
           >
-            GitHub
+            {t("github")}
           </Link>
         </div>
       </div>
@@ -32,28 +35,31 @@ export default function Home() {
       <div className="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <Card
           href="/docs/music"
-          title="Music Project"
-          description="Learn how to use the music player, sync lyrics, and contribute."
+          title={t("cards.music.title")}
+          description={t("cards.music.description")}
           icon={<Music className="h-10 w-10 text-primary" />}
+          readMore={t("readDocs")}
         />
         <Card
           href="/docs/nav"
-          title="Navigation Site"
-          description="Documentation for the navigation portal and site configuration."
+          title={t("cards.nav.title")}
+          description={t("cards.nav.description")}
           icon={<Globe className="h-10 w-10 text-primary" />}
+          readMore={t("readDocs")}
         />
         <Card
-          href="/docs/blog"
-          title="Blog Theme"
-          description="Guides on writing posts, customizing the theme, and deployment."
-          icon={<BookOpen className="h-10 w-10 text-primary" />}
+          href="/docs/bot"
+          title="Bot 插件"
+          description="Bot 插件使用说明与功能列表"
+          icon={<Bot className="h-10 w-10 text-primary" />}
+          readMore={t("readDocs")}
         />
       </div>
     </div>
   )
 }
 
-function Card({ href, title, description, icon }: { href: string; title: string; description: string; icon: React.ReactNode }) {
+function Card({ href, title, description, icon, readMore }: { href: string; title: string; description: string; icon: React.ReactNode, readMore: string }) {
   return (
     <Link
       href={href}
@@ -68,7 +74,7 @@ function Card({ href, title, description, icon }: { href: string; title: string;
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
         <div className="flex items-center text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
-          Read Docs <ArrowRight className="ml-1 h-4 w-4" />
+          {readMore} <ArrowRight className="ml-1 h-4 w-4" />
         </div>
       </div>
     </Link>

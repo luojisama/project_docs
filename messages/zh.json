@@ -1,0 +1,43 @@
+{
+  "HomePage": {
+    "title": "shiroの项目文档",
+    "description": "所有项目的文档。",
+    "getStarted": "开始使用",
+    "github": "GitHub",
+    "cards": {
+      "music": {
+        "title": "音乐项目",
+        "description": "了解如何使用音乐播放器、同步歌词以及参与贡献。"
+      },
+      "nav": {
+        "title": "导航站",
+        "description": "导航门户和站点配置的文档。"
+      }
+    },
+    "readDocs": "阅读文档"
+  },
+  "Navbar": {
+    "home": "首页",
+    "music": "音乐",
+    "nav": "导航",
+    "search": "搜索文档...",
+    "searchPlaceholder": "输入命令或搜索..."
+  },
+  "Search": {
+    "noResults": "未找到结果。(这是模拟搜索)"
+  },
+  "Sidebar": {
+    "music": "音乐项目",
+    "musicIntro": "简介",
+    "musicFeatures": "核心功能",
+    "musicTech": "技术栈",
+    "musicDev": "开发指南",
+    "nav": "导航项目",
+    "navIntro": "简介",
+    "navFeatures": "特性",
+    "navQuickStart": "快速开始",
+    "navCustomize": "如何修改",
+    "bot": "Bot 插件",
+    "botList": "插件列表"
+  }
+}
